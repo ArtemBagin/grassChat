@@ -64,7 +64,7 @@ document.querySelector('#chat-message-submit').onclick = function(e){
     message_input.value = '';
 }
 
-const messageInput = JSON.parse(JSON.stringify(document.getElementById('message_input')));
+const messageInput = document.getElementById('message_input');
 
 messageInput.addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {

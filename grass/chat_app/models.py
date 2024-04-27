@@ -17,7 +17,7 @@ class Room(models.Model):
     def add(cls, room_name, user):
         room, created = cls.objects.get_or_create(room_name=room_name)
         room.users.add(user)
-        return created # sockets => join or create
+        return created  # sockets => join or create
 
     @classmethod
     @sync_to_async
@@ -60,10 +60,8 @@ class ChatModel(models.Model):
     sender = models.CharField(max_length=100, default=None)
     message = models.TextField(null=True, blank=True)
     thread_name = models.CharField(null=True, blank=True, max_length=50)
-    room = models.ForeignKey(to=Room, on_delete=models.CASCADE,  verbose_name='room')
+    room = models.ForeignKey(to=Room, on_delete=models.CASCADE, verbose_name='room')
     timestamp = models.DateTimeField(auto_now_add=True)
-
-
 
     def __str__(self) -> str:
         return self.message
@@ -78,8 +76,6 @@ class ChatNotification(models.Model):
     chat = models.ForeignKey(to=ChatModel, on_delete=models.CASCADE)
     user = models.ForeignKey(to=user_model, on_delete=models.CASCADE)
     is_seen = models.BooleanField(default=False)
-
-
 
     def __str__(self) -> str:
         return self.user.email

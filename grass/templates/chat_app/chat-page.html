@@ -7,7 +7,6 @@
 {% block title %}Чат{% endblock %}
 {% block scripts %}
 <!-- chat -->
-<script src="{% static 'js/chat.js' %}"></script>
 {% endblock %}
 {% block content %}
 {% include 'components/header.html' %}
@@ -60,6 +59,7 @@
         {{userobj.email|json_script:"json-username-receiver"}}
         {{request.user.email|json_script:"json-message-username"}}
         {{room_obj.room_name|json_script:"json-room"}}
+        <script src="{% static 'js/chat.js' %}"></script>
     </div>
 </main>
 {% include 'components/footer.html' %}
