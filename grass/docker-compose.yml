@@ -33,15 +33,6 @@ services:
     image: redis:alpine
     container_name: redis
 
-#  nginx:
-#    build: ./nginx
-#    restart: unless-stopped
-#    volumes:
-#      - static_volume:/home/app/web/staticfiles
-#      - media_volume:/home/app/web/media
-#    depends_on:
-#      - web
-
 
 
 volumes:

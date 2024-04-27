@@ -1,5 +1,6 @@
-from pathlib import Path
 import os
+from pathlib import Path
+
 import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -16,11 +17,8 @@ SECRET_KEY = env.get_value('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.get_value('DEBUG')
 ALLOWED_HOSTS = env.get_value('ALLOWED_HOSTS').split()
-REDIS_HOST = env.get_value('REDIS_HOST', )
+REDIS_HOST = env.get_value('REDIS_HOST')
 REDIS_PORT = env.get_value('REDIS_PORT')
-
-print(REDIS_HOST)
-print(REDIS_PORT)
 
 CHANNEL_LAYERS = {
     'default': {
@@ -41,4 +39,3 @@ DATABASES = {
         'PORT': env('DB_PORT'),
     }
 }
-

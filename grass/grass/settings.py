@@ -10,5 +10,3 @@ if env.get_value('SETTINGS') == 'dev':
     from .dev import *
 elif env.get_value('SETTINGS') == 'prod':
     from .prod import *
-
-
